@@ -14,7 +14,7 @@ class CustomListener(StreamListener):
     def on_data(self, data):
         try:
             jsonData=json.loads(data)
-            print(data)
+            print(str(jsonData['text']).encode("utf-8",errors="ignore"))
             return True
         except BaseException as e:
             sys.stderr.write("Error on_data : {}\n".format(e))
