@@ -15,8 +15,10 @@ class CustomListener(StreamListener):
         try:
            # jsonData=json.loads(data)
            # print(str(jsonData['text']).encode("utf-8",errors="ignore"))
-            print(getTweets(data))
-            return True
+            text=getTweets(data)
+            if text != None :
+                print(getTweets(data))
+                return True
         except BaseException as e:
             sys.stderr.write("Error on_data : {}\n".format(e))
             time.sleep(5)
